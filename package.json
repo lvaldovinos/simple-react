@@ -1,0 +1,37 @@
+{
+  "name": "simple-react",
+  "version": "0.0.0",
+  "description": "Simple React example",
+  "main": "app.js",
+  "scripts": {
+    "build": "browserify views/main.js -o public/bundle.js",
+    "watch": "watchify views/main.js -o public/bundle.js -dv",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lvaldovinos/simple-react.git"
+  },
+  "keywords": [
+    "react",
+    "node",
+    "example"
+  ],
+  "author": "Luis Valdovinos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lvaldovinos/simple-react/issues"
+  },
+  "homepage": "https://github.com/lvaldovinos/simple-react",
+  "dependencies": {
+    "reactify": "^1.1.0",
+    "react": "^0.13.0",
+    "browserify": "^9.0.3",
+    "watchify": "^2.4.0"
+  },
+  "browserify" : {
+    "transform" : [
+      "reactify"
+    ]
+  }
+}
