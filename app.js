@@ -2,6 +2,7 @@
 
 var express = require('express'),
     fs = require('fs'),
+    apiRouter = require('./api/router'),
     app = express();
 
 app.use(express.static('public'));
@@ -15,6 +16,8 @@ app.get('/', function(req, res, next) {
     })
     .pipe(res);
 });
+
+app.use('/api', apiRouter);
 
 app.use(function(req, res, next) {
   res.statusCode = 404;

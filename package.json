@@ -24,13 +24,14 @@
   },
   "homepage": "https://github.com/lvaldovinos/simple-react",
   "dependencies": {
-    "reactify": "^1.1.0",
-    "react": "^0.13.0",
     "browserify": "^9.0.3",
+    "express": "^4.12.2",
+    "react": "^0.13.0",
+    "reactify": "^1.1.0",
     "watchify": "^2.4.0"
   },
-  "browserify" : {
-    "transform" : [
+  "browserify": {
+    "transform": [
       "reactify"
     ]
   }
