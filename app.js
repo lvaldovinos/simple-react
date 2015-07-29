@@ -3,20 +3,25 @@
 var express = require('express'),
     fs = require('fs'),
     apiRouter = require('./api/router'),
+		replaceStream = require('replacestream'),
+		React = require('react'),
+		App = React.createFactory(require('./views/main')),
+		htmlApp = React.renderToString(App()),
     app = express();
 
-app.use(express.static('public'));
-
 app.get('/', function(req, res, next) {
-  var output = fs.createReadStream('public/index.html');
+	//console.log('asdasd');
+	var output = fs.createReadStream('public/index.html');
   res.set('Content-Type', 'text/html');
   output
     .on('error', function(err) {
       return next(err);
     })
-    .pipe(res);
+		.pipe(replaceStream('!output', htmlApp))
+		.pipe(res);
 });
 
+app.use(express.static('public'));
 app.use('/api', apiRouter);
 
 app.use(function(req, res, next) {

@@ -1,11 +1,18 @@
 'use strict';
 
-var React = require('react');
+var React = require('react'),
+		Button = require('./button');
 
-var App = React.createClass({
-  render : function() {
-    return <div><h1>Simple React Example</h1></div>
-  } 
+var App = React.createClass({displayName: "App",
+	render : function() {
+		return (
+			React.createElement("div", null, 
+				React.createElement("h1", null, "Hi dude"), 
+				React.createElement(Button, null), 
+				React.createElement(Button, null)
+			)
+		);
+	}
 });
 
-React.render(<App/>, document.getElementById('application'));
+module.exports = App;

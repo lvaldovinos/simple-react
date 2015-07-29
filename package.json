@@ -4,9 +4,11 @@
   "description": "Simple React example",
   "main": "app.js",
   "scripts": {
-    "build": "browserify views/main.js -o public/bundle.js",
+    "build-server": "jsx views/src views",
+    "build": "browserify views/app.js -o public/bundle.js",
     "watch": "watchify views/main.js -o public/bundle.js -dv",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch-server": "jsx -w views/src views",
+		"test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -27,12 +29,8 @@
     "browserify": "^9.0.3",
     "express": "^4.12.2",
     "react": "^0.13.0",
+    "react-tools": "^0.13.3",
     "reactify": "^1.1.0",
     "watchify": "^2.4.0"
-  },
-  "browserify": {
-    "transform": [
-      "reactify"
-    ]
   }
 }
